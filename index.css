@@ -52,3 +52,17 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.login {
+    margin: 20px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;
+}
+.search-box {
+    margin-top: 10px;
+    margin-left: 10px;
+}
