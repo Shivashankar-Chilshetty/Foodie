@@ -1,4 +1,4 @@
-export let restaurantList = [
+export let resList = [
     {
         "info": {
             "id": "382780",
