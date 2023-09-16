@@ -4,22 +4,11 @@ import Shimmer from './Shimmer'
 import { Link } from 'react-router-dom';
 import { SWIGGY_URL } from '../utils/constants';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import useFetchListOfRestaurants from '../utils/useFetchListOfRestaurants';
 
 const Body = () => {
-    const [listOfRestaurants, setListOfRestraunt] = useState([]);
-    const [filteredRestaurants, setFilteredRestraunt] = useState([]);
+    const [listOfRestaurants, filteredRestaurants] = useFetchListOfRestaurants();
     const [searchText, setSearchText] = useState('');
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        let data = await fetch(SWIGGY_URL);
-        let json = await data.json();
-        setListOfRestraunt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        setFilteredRestraunt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    }
 
     let onlineStatus = useOnlineStatus();
     if(onlineStatus == false) return <h1>Looks like you're offline! Please check you internet connection</h1>
