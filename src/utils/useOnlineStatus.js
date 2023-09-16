@@ -3,12 +3,17 @@ import { useEffect, useState } from "react"
 const useOnlineStatus = () => {
     const [onlineStatus, setOnlineStatus] = useState(true);
     useEffect(() => {
-        window.addEventListener('online', () => {
-            setOnlineStatus(true);
-        })
-        window.addEventListener('offline', () => {
-            setOnlineStatus(false)
-        })
+        const handleOnline = () => setOnlineStatus(true);
+        const handleOffline = () => setOnlineStatus(false);
+
+        window.addEventListener('online', handleOnline);
+        window.addEventListener('offline', handleOffline);
+        
+        //below callback is called when we are leaving the component
+        return () => {
+            window.removeEventListener('online', handleOnline);
+            window.removeEventListener('offline', handleOffline);
+        }
     }, [])
     return onlineStatus;
 }
