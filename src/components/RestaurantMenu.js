@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
     const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
     console.log('itemscard--', itemCards)
     return (
-        <div className='menu'>
+        <div>
             <h1>{name}</h1>
             <p>{cuisines.join(',')}</p>
             <p>{costForTwoMessage}</p>
