@@ -10,4 +10,19 @@ const RestaurantCard = ({ name, locality, cuisines, avgRatingString, cloudinaryI
         </div>
     )
 }
+
+//Higher Order Component
+//input - RestaurantCard ==> returns RestaurantCardPromoted
+
+export const withPromotedLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div>
+                <label className='absolute bg-black text-white m-2 p-2 rounded-lg'>Promoted</label>
+                <RestaurantCard {...props.info}/>
+            </div>
+        );
+    };
+};
+
 export default RestaurantCard;
