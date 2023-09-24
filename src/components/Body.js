@@ -8,7 +8,6 @@ import useFetchListOfRestaurants from '../utils/useFetchListOfRestaurants';
 const Body = () => {
     const [listOfRestaurants, filteredRestaurants] = useFetchListOfRestaurants();
     const [searchText, setSearchText] = useState('');
-    console.log(listOfRestaurants)
     let onlineStatus = useOnlineStatus();
 
     const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
