@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const cartSlice = creatSlice({
+const cartSlice = createSlice({
     name: 'cart',
     initialState: {
         items: []
@@ -10,7 +10,9 @@ const cartSlice = creatSlice({
             state.items.push(action.payload);
         },
         clearCart: (state) => {
-            state.items = [];
+            state.items.length = 0;
+            //return {items:[]}
+            //state.items = []
         },
         removeItem: (state) => {
             state.items.pop();
