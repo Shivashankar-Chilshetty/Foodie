@@ -9,18 +9,19 @@ import Contact from './components/Contact';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 import Shimmer from './components/Shimmer';
-
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
 //lazy loading Grocery module
 const Grocery = lazy(() => import('./components/Grocery'));
 
 const AppLayout = () => {
     return (
-        <>
+        <Provider store={store} >
             <Header />
             <Outlet />
             <Footer />
-        </>
+        </Provider>
     )
 }
 
